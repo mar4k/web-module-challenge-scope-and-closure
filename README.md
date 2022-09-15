@@ -60,7 +60,8 @@ You will be running your tests in one terminal and debugging in the other. As yo
 
 Edit the `ReadMe` file with your answers to the questions below.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences). 
+      Closure is the intentional nesting of 1 or more scopes. Closure allows variables to be updated and stored locally within a scope, such that iterative or incremental changes can be made and saved independent of outside factors.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -82,8 +83,9 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+  Line 69.  Function inside a function.
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? The context of the returned random value from 1 to 6. What could change? There could be a counter that would tell how many times dan or zoe have rolled, or what the sum of their roll value are.
+c. What is the lexical scope of `newRoll`? The PersonalDice function.
 
 
 ### Task 3 - Stretch Goals
