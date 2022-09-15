@@ -122,7 +122,8 @@ console.log(finalScore(inning, 9));
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function in a parameter - you will pass in the inning function from task 2 as your argument 
-  2. Return an object with a score for home and a score for away that populates from invoking the inning callback function 
+  2. Return an object with a score for home and a score for away that populates from invoking the inning callback 
+  function 
   
 For example: invoking getInningScore(inning) might return this object:
 {
@@ -151,8 +152,11 @@ Use the scoreboard function below to do the following:
   3. Receive a number in a third parameter that will take the number of innings to be played as its argument
   4. Return an array where each of it's index values equals a string stating the
   Home and Away team's scores for each inning.  Not the cummulative score (see the example below).
-  5. If there's a tie at the end of the innings, add this message containing the score to the end of the array:  "This game will require extra innings: Away 12 - Home 12"  (see tie example below)
-     If there isn't a tie, add this message to the end of the array: "Final Score: Away 13 - Home 11"  (see no tie example below)
+  //5. If there's a tie at the end of the innings, add this message containing the score 
+  to the end of the array:  "This game will require extra innings: Away 12 - Home 12"  (see tie example below)
+     
+    If there isn't a tie, add this message to the end of the 
+     array: "Final Score: Away 13 - Home 11"  (see no tie example below)
   
   NO TIE example: invoking scoreboard(getInningScore,inning, 9) might return 
   an array of strings like this:
@@ -184,9 +188,55 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+
+function scoreboard(inningScoreCB, inningCB, numInnings) {
+  const scoreByInning = [];
+  let homeScore = 0;
+  let awayScore = 0;
+
+  for(let i = 0; i < numInnings; i++){
+    const currentInning = inningScoreCB(inningCB);
+    homeScore = homeScore + currentInning.Home;
+    awayScore = awayScore + currentInning.Away;
+    scoreByInning.push(`Inning ${i + 1}: Away ${currentInning.Away} - Home ${currentInning.Home}`);
+  }
+    if(homeScore === awayScore){
+      scoreByInning.push(`This game will require extra innings: Away ${currentInning.away}: Home ${CurrentInning.Home}`);
+    } else {
+      scoreByInning.push(`Final Score: Away: ${awayScore} - Home: ${homeScore}`);
+    }
+    return scoreByInning;
+  }
+
+
+console.log(scoreboard(getInningScore, inning, 9));
+
+
+
+//   let board = [];
+
+//   for (let i = 0; i < innNum; i++) {
+//     board.["Inning i"]
+//   }
+
+// }
+
+// scoreboard(getInningScore, inning, 9){
+
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
